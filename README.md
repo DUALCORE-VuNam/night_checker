@@ -26,7 +26,7 @@ night_checker/
 - Khi cài đặt nhớ tick chọn **“Add Python to PATH”**
 
 ### 2. Giải nén và mở thư mục dự án
-- Giải nén `night_checker-main.zip` và mở **Command Prompt (cmd)** tại thư mục đó.
+- Giải nén `night_checker-main.zip` và mở bằng **Command Prompt (cmd)** tại thư mục đó.
 - Cập nhật tất cả địa chỉ ví cần check vào file `addresses.txt` (Mỗi địa chỉ một dòng).
 
 ### 3. Chạy lệnh sau:
