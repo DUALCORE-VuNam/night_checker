@@ -1,64 +1,73 @@
-#!/usr/bin/env bash
-# Tự động chuyển đến thư mục chứa script
+#!/bin/bash
+# =========================================
+#  NIGHT CHECKER — Universal Setup & Run
+# =========================================
+
+echo "========================================="
+echo "   🌙 NIGHT CHECKER — Setup & Run"
+echo "========================================="
+
+# Move to the script’s directory
 cd "$(dirname "$0")"
 
-# =============================================
-#   NIGHT CHECKER – Setup & Run (Cross-Platform)
-# =============================================
-
-echo "============================================="
-echo "        NIGHT CHECKER – Setup & Run"
-echo "============================================="
-
 # Detect OS
-OS_TYPE="$(uname -s)"
-IS_WINDOWS=false
-case "$OS_TYPE" in
-    *NT*|*MINGW*|*CYGWIN*) IS_WINDOWS=true ;;
-esac
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    OS="macOS"
+    PYTHON_CMD="python3"
+    ACTIVATE_CMD="source venv/bin/activate"
+elif [[ "$OSTYPE" == "linux"* ]]; then
+    OS="Linux"
+    PYTHON_CMD="python3"
+    ACTIVATE_CMD="source venv/bin/activate"
+elif [[ "$OSTYPE" == "msys"* || "$OSTYPE" == "cygwin"* ]]; then
+    OS="Windows"
+    PYTHON_CMD="python"
+    ACTIVATE_CMD="source venv/Scripts/activate"
+else
+    echo "❌ Unsupported OS type: $OSTYPE"
+    exit 1
+fi
 
-# Function to create virtual environment
-create_venv() {
-    echo "🔧 Creating virtual environment..."
-    if $IS_WINDOWS; then
-        python -m venv venv
-    else
-        python3 -m venv venv
-    fi
-}
+echo "🧩 Detected system: $OS"
+echo "Using Python command: $PYTHON_CMD"
+echo "-----------------------------------------"
+
+# Check Python
+if ! command -v $PYTHON_CMD &> /dev/null
+then
+    echo "❌ Python is not installed or not in PATH."
+    echo "👉 Please install Python from https://www.python.org/downloads/"
+    exit 1
+fi
 
 # Create venv if not exists
 if [ ! -d "venv" ]; then
-    create_venv
+    echo "🔧 Creating virtual environment..."
+    $PYTHON_CMD -m venv venv
 else
     echo "✅ Virtual environment already exists."
 fi
 
 # Activate venv
-echo "⚙️  Activating virtual environment..."
-if $IS_WINDOWS; then
-    source venv/Scripts/activate
-else
-    source venv/bin/activate
-fi
+echo "⚙️ Activating virtual environment..."
+eval "$ACTIVATE_CMD"
 
-# Install dependencies
+# Install dependencies if requirements.txt exists
 if [ -f "requirements.txt" ]; then
-    echo "📦 Installing dependencies..."
-    pip install --upgrade pip > /dev/null
+    echo "📦 Installing dependencies from requirements.txt..."
     pip install -r requirements.txt
 else
-    echo "⚠️  No requirements.txt found, skipping..."
+    echo "⚠️ No requirements.txt found — skipping package installation."
 fi
 
-# Run main script
+# Run main.py if exists
 if [ -f "main.py" ]; then
     echo "🚀 Running main.py..."
-    python main.py
+    $PYTHON_CMD main.py
 else
-    echo "❌ main.py not found!"
+    echo "❌ main.py not found in current directory!"
 fi
 
-echo "============================================="
-echo "✅ Setup complete!"
-echo "============================================="
+echo "========================================="
+echo "✅ Setup complete! Exiting..."
+echo "========================================="
