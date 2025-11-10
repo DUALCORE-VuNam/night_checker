@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# Tự động chuyển đến thư mục chứa script
+cd "$(dirname "$0")"
+
 # =============================================
 #   NIGHT CHECKER – Setup & Run (Cross-Platform)
 # =============================================
