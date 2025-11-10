@@ -27,6 +27,7 @@ night_checker/
 
 ### 2. Giải nén và mở thư mục dự án
 Giải nén `night_checker-main.zip` và mở **Command Prompt (cmd)** tại thư mục đó.
+Cập nhật tất cả địa chỉ ví cần check vào file `addresses.txt` (Mỗi địa chỉ một dòng).
 
 ### 3. Chạy lệnh sau:
 ```
@@ -50,8 +51,16 @@ Sau khi chạy, script sẽ:
 ```
 python3 --version
 ```
+### 2. Cập nhật tất cả các địa chỉ ví cần check
+Cập nhật tất cả địa chỉ ví cần check vào file `addresses.txt` (Mỗi địa chỉ một dòng).
 
-### 2. Mở Terminal tại thư mục giải nén
+### 3. Mở Terminal tại thư mục giải nén
+Chạy lệnh:
+```
+cd path/to/night_checker-main
+```
+# (thay "path/to" bằng đường dẫn thực tế trên máy bạn)
+
 Chạy lệnh:
 ```
 chmod +x setup_and_run
