@@ -1,75 +1,61 @@
 #!/usr/bin/env bash
-# ===============================================
-#   NIGHT CHECKER - UNIVERSAL INSTALLER
-#   Works on macOS, Linux, and Windows (Git Bash)
-# ===============================================
+# =============================================
+#   NIGHT CHECKER – Setup & Run (Cross-Platform)
+# =============================================
 
-echo "==============================================="
-echo "          NIGHT CHECKER - Setup & Run"
-echo "==============================================="
+echo "============================================="
+echo "        NIGHT CHECKER – Setup & Run"
+echo "============================================="
 
-# Detect OS type
-OS="$(uname -s 2>/dev/null || echo Windows)"
+# Detect OS
+OS_TYPE="$(uname -s)"
+IS_WINDOWS=false
+case "$OS_TYPE" in
+    *NT*|*MINGW*|*CYGWIN*) IS_WINDOWS=true ;;
+esac
 
-if [[ "$OS" == "Linux" || "$OS" == "Darwin" ]]; then
-    echo "[*] Detected OS: macOS/Linux"
-    echo "[1/4] Checking virtual environment..."
-
-    if [ ! -d "venv" ]; then
-        echo "Creating new virtual environment..."
-        python3 -m venv venv
-    else
-        echo "Virtual environment already exists."
-    fi
-
-    echo "[2/4] Activating environment..."
-    source venv/bin/activate
-
-    echo "[3/4] Installing dependencies..."
-    if [ -f "requirements.txt" ]; then
-        pip install --upgrade pip
-        pip install -r requirements.txt
-    else
-        echo "WARNING: requirements.txt not found. Skipping."
-    fi
-
-    echo "[4/4] Running main.py..."
-    python3 main.py
-
-    deactivate
-
-elif [[ "$OS" == *"MINGW"* || "$OS" == *"MSYS"* || "$OS" == *"CYGWIN"* || "$OS" == "Windows" ]]; then
-    echo "[*] Detected OS: Windows"
-    echo "[1/4] Checking virtual environment..."
-
-    if not exist venv (
-        echo "Creating new virtual environment..."
+# Function to create virtual environment
+create_venv() {
+    echo "🔧 Creating virtual environment..."
+    if $IS_WINDOWS; then
         python -m venv venv
-    ) else (
-        echo "Virtual environment already exists."
-    )
+    else
+        python3 -m venv venv
+    fi
+}
 
-    echo "[2/4] Activating environment..."
-    call venv\Scripts\activate.bat
-
-    echo "[3/4] Installing dependencies..."
-    if exist requirements.txt (
-        pip install --upgrade pip
-        pip install -r requirements.txt
-    ) else (
-        echo "WARNING: requirements.txt not found. Skipping."
-    )
-
-    echo "[4/4] Running main.py..."
-    python main.py
-
-    deactivate
+# Create venv if not exists
+if [ ! -d "venv" ]; then
+    create_venv
 else
-    echo "[!] Unsupported operating system."
-    exit 1
+    echo "✅ Virtual environment already exists."
 fi
 
-echo
-echo "==============================================="
-echo "   ✅ NIGHT CHECKER executed successfully!"
-echo "==============================================="
+# Activate venv
+echo "⚙️  Activating virtual environment..."
+if $IS_WINDOWS; then
+    source venv/Scripts/activate
+else
+    source venv/bin/activate
+fi
+
+# Install dependencies
+if [ -f "requirements.txt" ]; then
+    echo "📦 Installing dependencies..."
+    pip install --upgrade pip > /dev/null
+    pip install -r requirements.txt
+else
+    echo "⚠️  No requirements.txt found, skipping..."
+fi
+
+# Run main script
+if [ -f "main.py" ]; then
+    echo "🚀 Running main.py..."
+    python main.py
+else
+    echo "❌ main.py not found!"
+fi
+
+echo "============================================="
+echo "✅ Setup complete!"
+echo "============================================="
