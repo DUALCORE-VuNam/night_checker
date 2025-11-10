@@ -63,8 +63,8 @@ Thay "path/to" bằng đường dẫn thực tế trên máy bạn
 
 Chạy lệnh:
 ```
-chmod +x Night_Checker
-./Night_Checker
+chmod +x night_checker
+./night_checker
 ```
 Script sẽ:
 - Kiểm tra và tạo môi trường ảo `venv`
