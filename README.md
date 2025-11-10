@@ -59,7 +59,7 @@ Chạy lệnh:
 ```
 cd path/to/night_checker-main
 ```
-# (thay "path/to" bằng đường dẫn thực tế trên máy bạn)
+Thay "path/to" bằng đường dẫn thực tế trên máy bạn
 
 Chạy lệnh:
 ```
