@@ -1,43 +1,90 @@
 # 🌙 NIGHT CHECKER
-
-**Night Checker** là công cụ tự động kiểm tra và xử lý dữ liệu theo thời gian thực.  
-Hỗ trợ chạy trên **Windows**, **macOS** và **Linux** — chỉ cần tải về và chạy file duy nhất `setup_and_run`.
-
----
-
-## ⚡️ TÍNH NĂNG CHÍNH
-- ✅ Tự động cài đặt môi trường ảo (Python venv).  
-- ✅ Tự động cài các thư viện cần thiết từ `requirements.txt`.  
-- ✅ Tự động chạy `main.py` ngay sau khi thiết lập xong.  
-- ✅ Chạy ổn định trên cả Windows và macOS/Linux.
+**Tự động kiểm tra và chạy chương trình theo lịch định sẵn**  
+Dự án hỗ trợ cả **Windows** và **macOS/Linux**.
 
 ---
 
-## 📦 TẢI VỀ
+## 📦 TẢI XUỐNG
+Tải bản ZIP mới nhất tại:  
+👉 [https://github.com/DUALCORE-VuNam/night_checker/archive/refs/heads/main.zip](https://github.com/DUALCORE-VuNam/night_checker/archive/refs/heads/main.zip)
 
-### 🔹 Cách 1: Tải bản ZIP trực tiếp
-➡️ [**Tải bản ZIP mới nhất tại đây**](https://github.com/DUALCORE-VuNam/night_checker/archive/refs/heads/main.zip)
-
-**Sau khi tải xong:**
-1. Giải nén file `.zip`
-2. Mở thư mục `night_checker-main`
-3. Làm theo hướng dẫn bên dưới cho hệ điều hành của bạn
+Giải nén ra thư mục, bạn sẽ có cấu trúc như sau:
+```
+night_checker/
+├── main.py
+├── requirements.txt
+├── setup_and_run
+└── README.md
+```
 
 ---
 
-## 💻 HƯỚNG DẪN CHO NGƯỜI DÙNG
+## 🪟 HƯỚNG DẪN CHO WINDOWS
 
-### 🪟 **Windows**
+### 1. Cài Python
+- Tải Python từ: [https://www.python.org/downloads](https://www.python.org/downloads)
+- Khi cài đặt nhớ tick chọn **“Add Python to PATH”**
 
-**Yêu cầu:**
-- Cài Python 3.9 trở lên
-- Bật tùy chọn “Add Python to PATH” khi cài
+### 2. Giải nén và mở thư mục dự án
+Giải nén `night_checker-main.zip` và mở **Command Prompt (cmd)** tại thư mục đó.
 
-**Cách chạy:**
-1. Mở **Command Prompt (CMD)** hoặc **PowerShell**
-2. Dùng lệnh để đi đến thư mục bạn giải nén:
-   ```bash
-   cd path\to\night_checker-main
-3. Chạy lệnh sau:
-   ```bash
-   setup_and_run
+### 3. Chạy lệnh sau:
+```
+setup_and_run
+```
+Nếu gặp lỗi **Execution Policy**, mở PowerShell bằng quyền **Administrator**, sau đó chạy:
+```
+Set-ExecutionPolicy Unrestricted
+```
+Sau khi chạy, script sẽ:
+- Kiểm tra và cài đặt môi trường ảo `venv`
+- Cài các gói cần thiết trong `requirements.txt`
+- Tự động chạy `main.py`
+
+---
+
+## 🍏 HƯỚNG DẪN CHO MACOS / LINUX
+
+### 1. Cài Python
+- Mặc định macOS/Linux đã có sẵn Python 3, kiểm tra bằng:
+```
+python3 --version
+```
+
+### 2. Mở Terminal tại thư mục giải nén
+Chạy lệnh:
+```
+chmod +x setup_and_run
+./setup_and_run
+```
+Script sẽ:
+- Kiểm tra và tạo môi trường ảo `venv`
+- Cài đặt phụ thuộc cần thiết
+- Tự động chạy chương trình
+
+---
+
+## ⚙️ CÁC TỆP QUAN TRỌNG
+| Tệp | Mô tả |
+|------|--------|
+| `main.py` | Mã chính của chương trình |
+| `setup_and_run` | Script tự động setup và chạy |
+| `requirements.txt` | Danh sách các thư viện cần thiết |
+| `README.md` | Tài liệu hướng dẫn sử dụng |
+
+---
+
+## 🔒 GIẤY PHÉP VÀ MIỄN TRỪ TRÁCH NHIỆM
+
+Phần mềm này được phát hành theo **MIT License**.  
+Người dùng **hoàn toàn chịu trách nhiệm** về mọi rủi ro hoặc thiệt hại phát sinh trong quá trình sử dụng.  
+Tác giả **không chịu bất kỳ trách nhiệm pháp lý nào** đối với:
+- Hư hại thiết bị
+- Mất dữ liệu
+- Sử dụng sai mục đích
+
+Bằng cách sử dụng phần mềm này, bạn đồng ý với các điều khoản trên.
+
+---
+
+**© 2025 DUALCORE-VuNam — All rights reserved.**
