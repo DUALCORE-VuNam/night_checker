@@ -13,7 +13,7 @@ Giải nén ra thư mục, bạn sẽ có cấu trúc như sau:
 night_checker/
 ├── main.py
 ├── requirements.txt
-├── Night_Checker
+├── setup_and_run
 └── README.md
 ```
 
@@ -63,8 +63,8 @@ Thay "path/to" bằng đường dẫn thực tế trên máy bạn
 
 Chạy lệnh:
 ```
-chmod +x night_checker
-./night_checker
+chmod +x setup_and_run
+./setup_and_run
 ```
 Script sẽ:
 - Kiểm tra và tạo môi trường ảo `venv`
@@ -77,7 +77,7 @@ Script sẽ:
 | Tệp | Mô tả |
 |------|--------|
 | `main.py` | Mã chính của chương trình |
-| `Night_Checker` | Script tự động setup và chạy |
+| `setup_and_run` | Script tự động setup và chạy |
 | `requirements.txt` | Danh sách các thư viện cần thiết |
 | `README.md` | Tài liệu hướng dẫn sử dụng |
 
