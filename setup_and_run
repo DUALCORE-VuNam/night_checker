@@ -1,0 +1,75 @@
+#!/usr/bin/env bash
+# ===============================================
+#   NIGHT CHECKER - UNIVERSAL INSTALLER
+#   Works on macOS, Linux, and Windows (Git Bash)
+# ===============================================
+
+echo "==============================================="
+echo "          NIGHT CHECKER - Setup & Run"
+echo "==============================================="
+
+# Detect OS type
+OS="$(uname -s 2>/dev/null || echo Windows)"
+
+if [[ "$OS" == "Linux" || "$OS" == "Darwin" ]]; then
+    echo "[*] Detected OS: macOS/Linux"
+    echo "[1/4] Checking virtual environment..."
+
+    if [ ! -d "venv" ]; then
+        echo "Creating new virtual environment..."
+        python3 -m venv venv
+    else
+        echo "Virtual environment already exists."
+    fi
+
+    echo "[2/4] Activating environment..."
+    source venv/bin/activate
+
+    echo "[3/4] Installing dependencies..."
+    if [ -f "requirements.txt" ]; then
+        pip install --upgrade pip
+        pip install -r requirements.txt
+    else
+        echo "WARNING: requirements.txt not found. Skipping."
+    fi
+
+    echo "[4/4] Running main.py..."
+    python3 main.py
+
+    deactivate
+
+elif [[ "$OS" == *"MINGW"* || "$OS" == *"MSYS"* || "$OS" == *"CYGWIN"* || "$OS" == "Windows" ]]; then
+    echo "[*] Detected OS: Windows"
+    echo "[1/4] Checking virtual environment..."
+
+    if not exist venv (
+        echo "Creating new virtual environment..."
+        python -m venv venv
+    ) else (
+        echo "Virtual environment already exists."
+    )
+
+    echo "[2/4] Activating environment..."
+    call venv\Scripts\activate.bat
+
+    echo "[3/4] Installing dependencies..."
+    if exist requirements.txt (
+        pip install --upgrade pip
+        pip install -r requirements.txt
+    ) else (
+        echo "WARNING: requirements.txt not found. Skipping."
+    )
+
+    echo "[4/4] Running main.py..."
+    python main.py
+
+    deactivate
+else
+    echo "[!] Unsupported operating system."
+    exit 1
+fi
+
+echo
+echo "==============================================="
+echo "   ✅ NIGHT CHECKER executed successfully!"
+echo "==============================================="
