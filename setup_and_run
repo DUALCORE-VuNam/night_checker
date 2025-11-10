@@ -69,5 +69,5 @@ else
 fi
 
 echo "========================================="
-echo "✅ Setup complete! Exiting..."
+echo "✅ Completed! Exiting..."
 echo "========================================="
