@@ -1,16 +1,14 @@
 #!/bin/bash
-# =========================================
-#  NIGHT CHECKER — Universal Setup & Run
-# =========================================
+
 
 echo "========================================="
 echo "          🌙 NIGHT CHECKER"
 echo "========================================="
 
-# Move to the script’s directory
+
 cd "$(dirname "$0")"
 
-# Detect OS
+
 if [[ "$OSTYPE" == "darwin"* ]]; then
     OS="macOS"
     PYTHON_CMD="python3"
@@ -32,7 +30,6 @@ echo "🧩 Detected system: $OS"
 echo "Using Python command: $PYTHON_CMD"
 echo "-----------------------------------------"
 
-# Check Python
 if ! command -v $PYTHON_CMD &> /dev/null
 then
     echo "❌ Python is not installed or not in PATH."
@@ -40,7 +37,7 @@ then
     exit 1
 fi
 
-# Create venv if not exists
+
 if [ ! -d "venv" ]; then
     echo "🔧 Creating virtual environment..."
     $PYTHON_CMD -m venv venv
@@ -48,11 +45,11 @@ else
     echo "✅ Virtual environment already exists."
 fi
 
-# Activate venv
+
 echo "⚙️ Activating virtual environment..."
 eval "$ACTIVATE_CMD"
 
-# Install dependencies if requirements.txt exists
+
 if [ -f "requirements.txt" ]; then
     echo "📦 Installing dependencies from requirements.txt..."
     pip install -r requirements.txt --quiet
