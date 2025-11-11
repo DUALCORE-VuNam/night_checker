@@ -1,6 +1,6 @@
 # 🌙 NIGHT CHECKER
 **Kiểm tra ví số lượng lớn qua cổng API chính thức của Midnight**
-Dự án hỗ trợ cả **Windows** và **macOS/Linux**.
+Tool hỗ trợ cả **Windows** và **macOS/Linux**.
 
 ---
 
