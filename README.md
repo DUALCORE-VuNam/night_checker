@@ -5,8 +5,9 @@ Dự án hỗ trợ cả **Windows** và **macOS/Linux**.
 ---
 
 ## 📦 TẢI XUỐNG
-Tải bản ZIP mới nhất tại:  
-👉 [https://github.com/DUALCORE-VuNam/night_checker/archive/refs/heads/main.zip](https://github.com/DUALCORE-VuNam/night_checker/archive/refs/heads/main.zip)
+👉 [**Tải NightChecker cho macOS (.zip)**](https://github.com/username/night_checker/releases/download/v1.0.0/NightChecker_macOS.zip)
+
+Giải nén file `.zip`, sau đó chạy:
 
 Giải nén ra thư mục, bạn sẽ có cấu trúc như sau:
 ```
