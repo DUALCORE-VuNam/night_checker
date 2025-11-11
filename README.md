@@ -4,9 +4,14 @@ Tool hỗ trợ cả **Windows** và **macOS/Linux**.
 
 ---
 
-## 🚀 Tải bản mới nhất
+## 🚀 NightChecker Download
 
-👉 Version For MacOS: [Download NightChecker and Extract](https://github.com/DUALCORE-VuNam/night_checker/blob/main/NightChecker_macOS.zip)
+| Hệ điều hành | File tải về |
+|---------------|-------------|
+| 🍎 macOS | [NightChecker_macOS.zip](https://github.com/DUALCORE-VuNam/night_checker/raw/main/NightChecker_macOS.zip) |
+| 🪟 Windows | _Đang cập nhật..._ |
+
+
 
 > Bao gồm:
 > - `NightChecker_macOS` (file chạy)
