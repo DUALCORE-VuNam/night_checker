@@ -1,12 +1,12 @@
 # 🌙 NIGHT CHECKER
-**Tự động kiểm tra và chạy chương trình theo lịch định sẵn**  
+**Kiểm tra ví số lượng lớn qua cổng API chính thức của Midnight**
 Dự án hỗ trợ cả **Windows** và **macOS/Linux**.
 
 ---
 
 ## 🚀 Tải bản mới nhất
 
-👉 Ver For MacOS [Download NightChecker and Extract](https://github.com/DUALCORE-VuNam/night_checker/archive/refs/heads/main.zip)
+👉 Version For MacOS: [Download NightChecker and Extract](https://github.com/DUALCORE-VuNam/night_checker/archive/refs/heads/main.zip)
 
 > Bao gồm:
 > - `NightChecker_macOS` (file chạy)
