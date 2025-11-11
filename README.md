@@ -10,13 +10,16 @@ Tool hỗ trợ cả **Windows** và **macOS/Linux**.
 |---------------|-------------|
 | 🍎 macOS | [NightChecker_macOS.zip](https://github.com/DUALCORE-VuNam/night_checker/raw/main/NightChecker_macOS.zip) |
 | 🪟 Windows | _Đang cập nhật..._ |
-
-
-
 > Bao gồm:
 > - `NightChecker_macOS` (file chạy)
 > - `addresses.txt` (file chứa danh sách ví)
 
+- Cập nhật tất cả địa chỉ ví cần check vào file `addresses.txt` (Mỗi địa chỉ một dòng).
+- Khởi chạy NightChecker.
+
+
+
+## Nội dung dành cho Developer:
 
 Giải nén ra thư mục, bạn sẽ có cấu trúc như sau:
 ```
