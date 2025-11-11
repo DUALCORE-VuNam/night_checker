@@ -4,24 +4,18 @@ import requests
 import csv
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-# =========================
-# CẤU HÌNH
-# =========================
+
 base_url = "https://scavenger.prod.gd.midnighttge.io/statistics/"
 
-# =========================
-# XÁC ĐỊNH ĐƯỜNG DẪN CHẠY THỰC TẾ
-# =========================
-if getattr(sys, 'frozen', False):  # Nếu đang chạy từ file .exe/.app
+
+if getattr(sys, 'frozen', False):  
     app_path = os.path.dirname(sys.executable)
-else:  # Nếu đang chạy từ file .py
+else:  
     app_path = os.path.dirname(os.path.abspath(__file__))
 
 addresses_file = os.path.join(app_path, "addresses.txt")
 
-# =========================
-# KIỂM TRA FILE addresses.txt
-# =========================
+
 if not os.path.exists(addresses_file):
     print("⚠️ Không tìm thấy file addresses.txt trong thư mục hiện tại!")
     print("👉 Hãy tạo file addresses.txt và thêm mỗi địa chỉ ví trên 1 dòng.")
@@ -36,15 +30,11 @@ if not addresses:
     input("\nNhấn Enter để thoát...")
     sys.exit(1)
 
-# =========================
-# XUẤT FILE CSV TRÊN DESKTOP
-# =========================
+
 desktop_path = os.path.join(os.path.expanduser("~"), "Desktop")
 output_file = os.path.join(desktop_path, "Night_Allocation_Summary.csv")
 
-# =========================
-# HÀM LẤY DỮ LIỆU
-# =========================
+
 def fetch_allocation(addr):
     try:
         r = requests.get(base_url + addr, timeout=10)
@@ -55,9 +45,7 @@ def fetch_allocation(addr):
     except Exception as e:
         return addr, f"Lỗi: {e}"
 
-# =========================
-# CHẠY SONG SONG
-# =========================
+
 results = []
 total_allocation = 0.0
 
@@ -72,9 +60,7 @@ with ThreadPoolExecutor(max_workers=10) as executor:
         if isinstance(value, (int, float)):
             total_allocation += value
 
-# =========================
-# XUẤT KẾT QUẢ
-# =========================
+
 with open(output_file, "w", newline="", encoding="utf-8") as f:
     writer = csv.writer(f)
     writer.writerow(["Address", "Night Allocation"])
