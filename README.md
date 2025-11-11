@@ -4,10 +4,14 @@ Dự án hỗ trợ cả **Windows** và **macOS/Linux**.
 
 ---
 
-## 📦 TẢI XUỐNG
-👉 [**Tải NightChecker cho macOS (.zip)**](https://github.com/username/night_checker/releases/download/v1.0.0/NightChecker_macOS.zip)
+## 🚀 Tải bản mới nhất
 
-Giải nén file `.zip`, sau đó chạy:
+👉 [Tải tại phần Releases](https://github.com/DUALCORE-VuNam/NightChecker/releases/latest)
+
+> Bao gồm:
+> - `NightChecker_macOS` (file chạy)
+> - `addresses.txt` (file chứa danh sách ví)
+
 
 Giải nén ra thư mục, bạn sẽ có cấu trúc như sau:
 ```
