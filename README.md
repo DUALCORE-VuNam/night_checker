@@ -1,4 +1,4 @@
-# 🌙 NIGHT CHECKER
+# 🌙 NIGHT CHECKER for Scavenger Mine-M9
 **Kiểm tra ví số lượng lớn qua cổng API chính thức của Midnight**
 Tool hỗ trợ cả **Windows** và **macOS/Linux**.
 
